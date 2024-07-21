@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    
+</head>
+<body>
+
+    {%for message in messages%}
+    <div class="alert alert-{{message.tags}} alert-dismissable fade show" role="alert">
+    <strong>Message:</strong> {{ message}}  
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span> 
+    </button>      
+    </div>
+    {% endfor %}
+
+    <h1>Welcome to LS-2024 project</h1>
+
+    {% if user.is_authenticated %}
+    <h2> Hello {{ username }}</h2>
+    <h3> You are succesfully logged in</h3>
+    <button type="submit"><a href="/logout_">logout</a></button>
+
+    {% else %}
+
+    <button type="submit"><a href="/login_">login</a></button>
+    <button type="submit"><a href="/signup">Signup</a></button>
+    {% endif %}
+</body>
+</html>
